@@ -5,6 +5,12 @@ Including some examples classify the Oxford-IIIT Pet Dataset using scikit-learn
 ## Dependencies
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
 
+## Installation
+
+
+## Usage
+
+
 ## Examples
 * Classification of Oxford-IIIT Pet Dataset using SVM
 ```py
