@@ -6,6 +6,10 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 ## Examples
 * Result of classification using SVM
 ```
+SVC(C=10.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
+    gamma=1e-06, kernel='rbf', max_iter=-1, probability=False,
+    random_state=None, shrinking=True, tol=0.001, verbose=False)
+    
                    precision    recall  f1-score   support
 
        Abyssinian       0.81      0.84      0.82        50
