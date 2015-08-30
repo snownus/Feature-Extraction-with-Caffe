@@ -15,8 +15,8 @@ Modify the deploy.prototxt file as following
 ```shellsession
 $ cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
 ```
-```text:deploy_feature.prototxt
-# deploy_feature.prototxt
+* deploy_feature.prototxt
+```
 # line 152
 layer {
   name: "fc6"
@@ -34,7 +34,7 @@ layer {
   # bottom: "fc6"
   bottom: "fc6wi"
   top: "fc6"
-}...
+}
 ```
 
 ## Usage
