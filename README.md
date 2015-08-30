@@ -9,11 +9,13 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 
 
 ## Usage
-make sure that the locations (caffe_root, images, and model files) are correctly designated
+You should prepare a '.npy' file contains image filenames in numpy.array
+Make sure that the following locations (caffe_root, images, and model files) are correctly designated
 ```py
 #feature_extract.py
 caffe_root = '../'
-image_dir = caffe_root + "working/oxford_pet_dataset/"
+IMAGE_FILENAMES = 'train_filenames.npy'
+IMAGE_DIR = caffe_root + "working/oxford_pet_dataset/"
 MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
 MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
