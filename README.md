@@ -26,7 +26,7 @@ British Shorthair       0.74      0.90      0.81        50
       avg / total       0.81      0.81      0.81       600
 ```
 * Confusion matrix
-![Confusion Matrix (SVM)](/examples/svm_cmatrix.png)  
+![Confusion Matrix (SVM)](/examples/svm_cmatri.png)  
 
 * Contour of grid search (SVM)
 ![Grid Search (SVM)](/examples/svm_gridsearch.png)  
