@@ -13,7 +13,8 @@ $ ./data/ilsvrc12/get_ilsvrc_aux.sh
 ```
 Modify the deploy.prototxt file as following
 ```shellsession
-$ cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
+$ cp models/bvlc_reference_caffenet/deploy.prototxt  
+      models/bvlc_reference_caffenet/deploy_feature.prototxt
 ```
 * deploy_feature.prototxt
 ```
