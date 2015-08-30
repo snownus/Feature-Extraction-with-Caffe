@@ -6,7 +6,12 @@ Including some examples classify the Oxford-IIIT Pet Dataset using scikit-learn
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
 
 ## Installation
-
+Download ['.caffemodel' file](https://github.com/BVLC/caffe/tree/master/models/bvlc_reference_caffenet)
+to caffe/models/bvlc_reference_caffenet/  
+and other dependent files by using the script
+```sh
+./data/ilsvrc12/get_ilsvrc_aux.sh
+```
 
 ## Usage
 You should prepare a '.npy' file contains image filenames in numpy.array  
