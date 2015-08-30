@@ -1,6 +1,7 @@
 # Feature Extraction with Caffe
+A simple python code of feature extraction with caffe refered to [wellflat/cat-fancier](https://github.com/wellflat/cat-fancier/tree/master/classifier)
 
-## Requirements
+## Dependencies
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
 
 ## Examples
