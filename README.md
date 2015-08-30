@@ -9,7 +9,7 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 
 
 ## Usage
-make sure that location of caffe root, and some model files are correctly designated
+make sure that the locations (caffe_root, images, and model files) are correctly designated
 ```py
 #feature_extract.py
 caffe_root = '../'
