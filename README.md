@@ -16,6 +16,8 @@ Modify the deploy.prototxt file as following
 cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
 ```
 ```txt
+# deploy_feature.prototxt
+# line 152
 layer {
   name: "fc6"
   type: "InnerProduct"
@@ -32,7 +34,7 @@ layer {
   # bottom: "fc6"
   bottom: "fc6wi"
   top: "fc6"
-}
+}...
 ```
 
 ## Usage
