@@ -1,5 +1,6 @@
 caffe_root = '../'
-image_dir = caffe_root + "working/oxford_pet_dataset/"
+IMAGE_FILENAMES = 'train_filenames.npy'
+IMAGE_DIR = caffe_root + "working/oxford_pet_dataset/"
 MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
 MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
@@ -19,13 +20,13 @@ transformer.set_raw_scale('data', 255)
 transformer.set_channel_swap('data', (2,1,0))
 
 features = []
-IMAGE_FILES = np.load('train_filenames.npy')
-LEN = len(IMAGE_FILES)
-net.blobs['data'].reshape(LEN,3,227,227)
-for i in range(LEN):
-    LOAD_IMAGE = image_dir + IMAGE_FILES[i]
+filenames = np.load('train_filenames.npy')
+N = len(filenames)
+net.blobs['data'].reshape(N,3,227,227)
+for i in range(N):
+    load_image = IMAGE_DIR + filenames[i]
     net.blobs['data'].data[i] = \
-        transformer.preprocess('data', caffe.io.load_image(LOAD_IMAGE))
+        transformer.preprocess('data', caffe.io.load_image(load_image))
 net.forward()
 features = net.blobs[FEAT_LAYER].data
 np.save('train_features.npy', features)
