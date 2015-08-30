@@ -6,11 +6,33 @@ Including some examples classify the Oxford-IIIT Pet Dataset using scikit-learn
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
 
 ## Installation
-Download ['.caffemodel' file](https://github.com/BVLC/caffe/tree/master/models/bvlc_reference_caffenet)
-to caffe/models/bvlc_reference_caffenet/  
-and other dependent files by using the script
+Download [CaffeNet modelfile](https://github.com/BVLC/caffe/tree/master/models/bvlc_reference_caffenet)
+to caffe/models/bvlc_reference_caffenet/ and other dependent files by this script
 ```sh
 ./data/ilsvrc12/get_ilsvrc_aux.sh
+```
+Modify the deploy.prototxt file as following
+```sh
+cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
+```
+```txt
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "pool5"
+  # top: "fc6"
+  top: "fc6wi"
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  name: "relu6"
+  type: "ReLU"
+  # bottom: "fc6"
+  bottom: "fc6wi"
+  top: "fc6"
+}
 ```
 
 ## Usage
