@@ -9,13 +9,13 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 Download [CaffeNet modelfile](https://github.com/BVLC/caffe/tree/master/models/bvlc_reference_caffenet)
 to caffe/models/bvlc_reference_caffenet/ and other dependent files by this script
 ```shellsession
-./data/ilsvrc12/get_ilsvrc_aux.sh
+$ ./data/ilsvrc12/get_ilsvrc_aux.sh
 ```
 Modify the deploy.prototxt file as following
 ```shellsession
-cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
+$ cp models/bvlc_reference_caffenet/deploy.prototxt models/bvlc_reference_caffenet/deploy_feature.prototxt
 ```
-```txt:deploy_feature.prototxt
+```text:deploy_feature.prototxt
 # deploy_feature.prototxt
 # line 152
 layer {
