@@ -1,6 +1,6 @@
 # Feature Extraction with Caffe
 A simple python code of feature extraction with caffe refered to [wellflat/cat-fancier](https://github.com/wellflat/cat-fancier/tree/master/classifier)  
-Including some examples classify the Oxford-IIIT Pet Dataset using scikit-learn
+Including some examples classify the [Oxford-IIIT Pet Dataset](http://www.robots.ox.ac.uk/~vgg/data/pets/) using scikit-learn
 
 ## Dependencies
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
