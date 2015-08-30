@@ -1,12 +1,12 @@
 caffe_root = '../'
 image_dir = caffe_root + "working/oxford_pet_dataset/"
-import sys
-sys.path.insert(0, caffe_root + 'python')
 MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
 MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
 FEAT_LAYER = 'fc6wi'
 
+import sys
+sys.path.insert(0, caffe_root + 'python')
 import caffe
 import numpy as np
 caffe.set_mode_cpu()
