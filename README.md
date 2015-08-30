@@ -9,7 +9,16 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 
 
 ## Usage
-
+make sure that location of caffe root, and some model files are correctly designated
+```py
+#feature_extract.py
+caffe_root = '../'
+image_dir = caffe_root + "working/oxford_pet_dataset/"
+MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
+MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
+PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
+FEAT_LAYER = 'fc6wi'
+```
 
 ## Examples
 * Classification of Oxford-IIIT Pet Dataset using SVM
