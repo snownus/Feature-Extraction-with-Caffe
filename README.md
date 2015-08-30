@@ -4,7 +4,7 @@
 Caffe, Python 2, NumPy, scikit-learn, matplotlib  
 
 ## Examples
-* Result of classification using SVM
+* Classification of Oxford-IIIT Pet Dataset using SVM
 ```
 SVC(C=10.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
     gamma=1e-06, kernel='rbf', max_iter=-1, probability=False,
