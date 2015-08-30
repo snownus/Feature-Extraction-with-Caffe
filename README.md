@@ -9,7 +9,7 @@ Caffe, Python 2, NumPy, scikit-learn, matplotlib
 
 
 ## Usage
-You should prepare a '.npy' file contains image filenames in numpy.array
+You should prepare a '.npy' file contains image filenames in numpy.array  
 Make sure that the following locations (caffe_root, images, and model files) are correctly designated
 ```py
 #feature_extract.py
