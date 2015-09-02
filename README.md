@@ -38,8 +38,7 @@ layer {
 }
 ```
 
-## Usage
-You should prepare a '.npy' file contains image filenames in numpy.array  
+## Usage 
 Make sure that the following locations (caffe_root, images, and model files) are correctly designated
 * feature_extract.py
 ```py
@@ -50,6 +49,7 @@ MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototx
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
 FEAT_LAYER = 'fc6wi'
 ```
+You should prepare a '.npy' file contains image filenames in numpy.array  
 ```shellsession
 $ python feature_extract.py -i image_filenames.npy -o extracted_features.npy
 ```
