@@ -10,14 +10,10 @@ if __name__ == '__main__':
     param_grid = {"max_features": p1, #recommand: sqrt(n)
                   "n_estimators": p2} #number of trees
     from sklearn.ensemble import RandomForestClassifier
-    clf = GridSearchCV( \
-        RandomForestClassifier(), param_grid=param_grid, n_jobs=-1)
+    clf = GridSearchCV(RandomForestClassifier(), \
+                        param_grid=param_grid, n_jobs=-1, class_weight='auto')
     features = np.load('train_features.npy')
     labels = np.load('train_labels.npy')
-    np.random.seed(0)
-    indices = np.random.permutation(len(labels))
-    features = features[indices[:300]]
-    labels = labels[indices[:300]]
     clf.fit(features, labels)
     print(clf.best_estimator_)
 
@@ -25,6 +21,10 @@ if __name__ == '__main__':
     predicts = clf.predict(test_feats)
     test_labels = np.load('test_labels.npy')
     class_names = np.load('class_names.npy')
+    
+    accuracy = skl.metrics.accuracy_score(y_true=test_labels, y_pred=predicts)
+    print 'accuracy: ' + str(accuracy)
+
     report = skl.metrics.classification_report( \
         y_true=test_labels, y_pred=predicts, target_names=class_names)
     print(report)

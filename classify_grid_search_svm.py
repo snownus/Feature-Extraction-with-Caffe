@@ -9,13 +9,10 @@ if __name__ == '__main__':
     p2 = [1e-2, 1e-4, 1e-6, 1e-8, 1e-10]
     param_grid = {"C": p1, "gamma": p2}
     from sklearn.svm import SVC
-    clf = GridSearchCV(SVC(), param_grid=param_grid, n_jobs=-1)
+    clf = GridSearchCV(SVC(class_weight='auto'), \
+                        param_grid=param_grid, n_jobs=-1)
     features = np.load('train_features.npy')
     labels = np.load('train_labels.npy')
-    np.random.seed(0)
-    indices = np.random.permutation(len(labels))
-    features = features[indices[:300]]
-    labels = labels[indices[:300]]
     clf.fit(features, labels)
     print(clf.best_estimator_)
 
@@ -23,6 +20,10 @@ if __name__ == '__main__':
     predicts = clf.predict(test_feats)
     test_labels = np.load('test_labels.npy')
     class_names = np.load('class_names.npy')
+    
+    accuracy = skl.metrics.accuracy_score(y_true=test_labels, y_pred=predicts)
+    print 'accuracy: ' + str(accuracy)
+
     report = skl.metrics.classification_report( \
         y_true=test_labels, y_pred=predicts, target_names=class_names)
     print(report)
