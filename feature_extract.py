@@ -1,13 +1,20 @@
 caffe_root = '../'
-IMAGE_FILENAMES = 'train_filenames.npy'
-IMAGE_DIR = caffe_root + "working/oxford_pet_dataset/"
+image_dir = caffe_root + "working/The Oxford-IIIT Pet Dataset/"
+import sys
+sys.path.insert(0, caffe_root + 'python')
 MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
 MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
 FEAT_LAYER = 'fc6wi'
 
-import sys
-sys.path.insert(0, caffe_root + 'python')
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', metavar='Inputs', type=str, default='filenames.npy',
+                   help='npy filename containing image filenames')
+parser.add_argument('-o', metavar='Outputs', type=str, default='features.npy',
+                    help='npy filename wirtes extracted features in')
+args = parser.parse_args()
+
 import caffe
 import numpy as np
 caffe.set_mode_cpu()
@@ -20,13 +27,13 @@ transformer.set_raw_scale('data', 255)
 transformer.set_channel_swap('data', (2,1,0))
 
 features = []
-filenames = np.load('train_filenames.npy')
-N = len(filenames)
-net.blobs['data'].reshape(N,3,227,227)
-for i in range(N):
-    load_image = IMAGE_DIR + filenames[i]
+IMAGE_FILES = np.load(args.i)
+LEN = len(IMAGE_FILES)
+net.blobs['data'].reshape(LEN,3,227,227)
+for i in range(LEN):
+    LOAD_IMAGE = image_dir + IMAGE_FILES[i]
     net.blobs['data'].data[i] = \
-        transformer.preprocess('data', caffe.io.load_image(load_image))
+        transformer.preprocess('data', caffe.io.load_image(LOAD_IMAGE))
 net.forward()
 features = net.blobs[FEAT_LAYER].data
-np.save('train_features.npy', features)
+np.save(args.o, features)
