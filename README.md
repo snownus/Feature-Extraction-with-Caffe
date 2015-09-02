@@ -44,12 +44,14 @@ Make sure that the following locations (caffe_root, images, and model files) are
 * feature_extract.py
 ```py
 caffe_root = '../'
-IMAGE_FILENAMES = 'train_filenames.npy'
-IMAGE_DIR = caffe_root + "working/oxford_pet_dataset/"
+image_dir = caffe_root + "working/The Oxford-IIIT Pet Dataset/"
 MEAN_FILE = caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy'
 MODEL_FILE = caffe_root + 'models/bvlc_reference_caffenet/deploy_feature.prototxt'
 PRETRAINED = caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
 FEAT_LAYER = 'fc6wi'
+```
+```shellsession
+$ python feature_extract.py -i image_filenames.npy -o extracted_features.npy
 ```
 
 ## Examples
@@ -57,22 +59,35 @@ FEAT_LAYER = 'fc6wi'
 ```py
 > report = sklearn.metrics.classification_report(y_true, y_pred, target_names)
 > print(report)
-                   precision    recall  f1-score   support
+                            precision    recall  f1-score   support
 
-       Abyssinian       0.81      0.84      0.82        50
-           Bengal       0.75      0.76      0.75        50
-           Birman       0.69      0.70      0.69        50
-           Bombay       0.92      0.94      0.93        50
-British Shorthair       0.74      0.90      0.81        50
-     Egyptian Mau       0.87      0.90      0.88        50
-       Maine Coon       0.86      0.88      0.87        50
-          Persian       0.88      0.74      0.80        50
-          Ragdoll       0.62      0.68      0.65        50
-     Russian Blue       0.93      0.78      0.85        50
-          Siamese       0.79      0.66      0.72        50
-           Sphynx       0.90      0.90      0.90        50
+          american bulldog       0.66      0.80      0.72        50
+ american pit bull terrier       0.66      0.58      0.62        50
+              basset hound       0.78      0.80      0.79        50
+                    beagle       0.71      0.60      0.65        50
+                     boxer       0.71      0.78      0.74        50
+                 chihuahua       0.89      0.78      0.83        50
+    english cocker spaniel       0.81      0.84      0.82        50
+            english setter       0.85      0.78      0.81        50
+        german shorthaired       0.95      0.82      0.88        50
+            great pyrenees       0.84      0.84      0.84        50
+                  havanese       0.88      0.84      0.86        50
+             japanese chin       0.93      0.86      0.90        50
+                  keeshond       0.98      0.98      0.98        50
+                leonberger       0.88      0.92      0.90        50
+        miniature pinscher       0.87      0.82      0.85        50
+              newfoundland       0.85      0.92      0.88        50
+                pomeranian       0.95      0.78      0.86        50
+                       pug       0.96      0.98      0.97        50
+             saint bernard       0.81      0.86      0.83        50
+                   samoyed       0.84      0.94      0.89        50
+          scottish terrier       0.90      0.90      0.90        49
+                 shiba inu       0.79      0.88      0.83        50
+staffordshire bull terrier       0.56      0.66      0.61        41
+           wheaten terrier       0.79      0.84      0.82        50
+         yorkshire terrier       0.96      0.92      0.94        50
 
-      avg / total       0.81      0.81      0.81       600
+               avg / total       0.83      0.83      0.83      1240
 ```
 * Confusion matrix
 ![Confusion Matrix (SVM)](/examples/svm_cmatrix.png)  
