@@ -28,9 +28,9 @@ transformer.set_channel_swap('data', (2,1,0))
 
 features = []
 IMAGE_FILES = np.load(args.i)
-LEN = len(IMAGE_FILES)
-net.blobs['data'].reshape(LEN,3,227,227)
-for i in range(LEN):
+N = len(IMAGE_FILES)
+net.blobs['data'].reshape(N,3,227,227)
+for i in range(N):
     LOAD_IMAGE = image_dir + IMAGE_FILES[i]
     net.blobs['data'].data[i] = \
         transformer.preprocess('data', caffe.io.load_image(LOAD_IMAGE))
