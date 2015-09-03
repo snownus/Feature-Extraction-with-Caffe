@@ -62,7 +62,8 @@ $ python feature_extract.py -i image_filenames.npy -o extracted_features.npy
 ```py
 > accuracy = skl.metrics.accuracy_score(y_true=test_labels, y_pred=predicts)
 > print(accuracy)
-0.829838709677
+0.829838709677  
+
 > report = sklearn.metrics.classification_report(y_true, y_pred, target_names)
 > print(report)
                             precision    recall  f1-score   support
