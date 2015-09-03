@@ -10,8 +10,8 @@ if __name__ == '__main__':
     param_grid = {"max_features": p1, #recommand: sqrt(n)
                   "n_estimators": p2} #number of trees
     from sklearn.ensemble import RandomForestClassifier
-    clf = GridSearchCV(RandomForestClassifier(), \
-                        param_grid=param_grid, n_jobs=-1, class_weight='auto')
+    clf = GridSearchCV(RandomForestClassifier(class_weight='auto'), \
+                        param_grid=param_grid, n_jobs=-1)
     features = np.load('train_features.npy')
     labels = np.load('train_labels.npy')
     clf.fit(features, labels)
