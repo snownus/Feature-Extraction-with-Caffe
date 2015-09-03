@@ -55,6 +55,9 @@ $ python feature_extract.py -i image_filenames.npy -o extracted_features.npy
 ```
 
 ## Examples
+* Contour of grid search (SVM)
+![Grid Search (SVM)](/examples/svm_gridsearch.png)  
+
 * Classification of Oxford-IIIT Pet Dataset using SVM
 ```py
 > report = sklearn.metrics.classification_report(y_true, y_pred, target_names)
@@ -92,6 +95,11 @@ staffordshire bull terrier       0.56      0.66      0.61        41
 * Confusion matrix
 ![Confusion Matrix (SVM)](/examples/svm_cmatrix.png)  
 
-* Contour of grid search (SVM)
-![Grid Search (SVM)](/examples/svm_gridsearch.png)  
+* Keeshond (the best class in F-score)
+![Keeshond](/examples/keeshond_3.jpg) 
 
+* Staffordshire bull terrier (the worst class)
+![Staffordshire bull terrier](/examples/staffordshire_bull_terrier_13.jpg) 
+
+* American pit bull terrier (sometimes predicted as staffordshire bull terrier)
+![American pit bull terrier](/examples/american_pit_bull_terrier_44.jpg) 
